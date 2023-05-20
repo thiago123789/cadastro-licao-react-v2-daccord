@@ -6,7 +6,7 @@ import { Modal, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const apiUrl = 'http://localhost:5000/licoes';
+const apiUrl = 'http://localhost:8080/licoes';
 
 const geradorDeId = () => {
   return Math.random().toString(36).substring(2) + Date.now().toString(36);
@@ -18,6 +18,7 @@ const Services = () => {
   const [mostraModal, setMostraModal] = useState(false);
   const [selecionaLicao, setSelecionaLicao] = useState(null);
 
+  
   useEffect(() => {
     fetch(apiUrl)
       .then(response => response.json())

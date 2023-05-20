@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; 
 
 const LicaoItem = ({ licao, verLicao, editarLicao, excluirLicao }) => {
     const [editarLicaoAberto, setEditarLicaoAberto] = useState(false);
     const [licaoEditada, setLicaoEditada] = useState({});
+    const navigate = useNavigate();
 
     const btnEditarLicao = () => {
         setEditarLicaoAberto(true);
@@ -22,6 +24,8 @@ const LicaoItem = ({ licao, verLicao, editarLicao, excluirLicao }) => {
         setLicaoEditada((estadoAntigo) => ({ ...estadoAntigo, [name]: value }));
     };
 
+    //verLicao(licao.id)
+
     return (
         <tr key={licao.id}>
             
@@ -30,7 +34,7 @@ const LicaoItem = ({ licao, verLicao, editarLicao, excluirLicao }) => {
             <td>{licao.titulo}</td>
             <td>{licao.dificuldade}</td>
             <td>
-                <Button variant="primary" size="sm" onClick={() => verLicao(licao.id)}>
+                <Button variant="primary" size="sm" onClick={() => navigate(`/licao/${licao.id}`)}>
                     Read
                 </Button>
                 <Button variant="warning" size="sm" onClick={btnEditarLicao}>

@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-CORS(app, resources={r"/licoes/*" : {"origins" : "http://localhost:3000"}})
+CORS(app, resources={r"/licoes/*" : {"origins" : "*"}})
 
 licoes = [
 
@@ -54,4 +54,5 @@ def excluir_licao(id):
             del licoes[indice]
     return jsonify(licoes)
 
-app.run(port=5000, host='localhost', debug=True)
+if __name__ == "__main__":
+    app.run(port=8080, host='localhost', debug=True)

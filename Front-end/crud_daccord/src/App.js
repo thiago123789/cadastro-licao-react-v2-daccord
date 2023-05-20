@@ -3,7 +3,7 @@ import Cadastro from './Paginas/Cadastro/Cadastro';
 import Header from './componentes/Header'; //importar Header
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import Licao from './Paginas/Licao/Licao';
 
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/licoes' element={<Cadastro/>}/>
+          <Route path='/licao/:id' element={<Licao/>}/>
         </Routes>
       </BrowserRouter>
 
